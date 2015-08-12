@@ -56,16 +56,16 @@ angular.module('starter.services', [])
 
 .factory('Logins', function(){
   return {
-    autorizar: function(email, password){
+    autorizarserompe: function(email, password){
       console.log('llego a autorizar');
       if(email == 'diana@hotmail.com' && 
         password == '123')
       {
-        alert(email);
+        console.log(email);
       }
       else 
       {
-        alert('ERROR');
+        console.log('ERROR');
       }
     }
   }
