@@ -1,0 +1,9 @@
+/* Empty. Add your own CSS if you like */
+p.online
+{
+	color: green;
+}
+p.offline
+{
+	color: red;
+}
