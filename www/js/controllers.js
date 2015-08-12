@@ -46,5 +46,18 @@ angular.module('starter.controllers', [])
     }*/
 
     Logins.autorizar($scope.datos.email, $scope.datos.password)
+  };
+})
+
+.controller('LoginNewCtrl', function($scope, Crears) {
+   $scope.datos = {
+    email: "", 
+    password: "",
+    sexo: "",
+    edad: ""
+  }; 
+  
+  $scope.click = function(){
+    Crears.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
   }
 });
