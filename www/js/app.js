@@ -87,7 +87,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'LoginCtrl'
       }
     }
-  });
+  })
+
+  .state('tab.loginnew', {
+    url: '/loginnew',
+    views: {
+      'tab-loginnew': {
+        templateUrl: 'templates/tab-loginnew.html',
+        controller: 'LoginNewCtrl'
+      }
+    }
+  })  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');

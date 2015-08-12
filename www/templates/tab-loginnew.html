@@ -1,7 +1,6 @@
-<ion-view view-title="Login">
+<ion-view view-title="LoginNew">
   <ion-content>
-    
-    
+
     <label class="item item-input">
       <span class="input-label" name="email">Email</span>
       <input type="email" ng-model="datos.email" >
@@ -12,16 +11,22 @@
       <input type="password" ng-model="datos.password">
     </label>
 
-    <!-- 
-    <span class="input-label">Sexo</span>
-    <input type="radio" ng-model="datos.sexo" >
--->
+    <label class="item item-input item-select">
+      <span class="input-label">Sexo</span>
+      <select ng-model="datos.sexo">
+        <option selected>Femenino</option>
+        <option>Masculino</option>
+      </select>
+    </label>
 
+    <label class="item item-input item-select">
+      <span class="input-label">Edad</span>
+      <input type="number" ng-model="datos.edad" >   
+    </label>
 
     <button class="button button-block button-positive" ng-click="click()">
       Ok
     </button>
-    <a href="#/tab/loginnew">Crear nuevo usuario</a>
 
   </ion-content>
 </ion-view>

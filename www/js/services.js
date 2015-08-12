@@ -70,3 +70,11 @@ angular.module('starter.services', [])
     }
   }
 })
+
+.factory('Crears', function(){
+  return{
+    crear: function(email, password, sexo, edad){
+      console.log(email, password, sexo, edad);
+    }
+  }
+})
