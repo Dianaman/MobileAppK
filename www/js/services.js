@@ -56,7 +56,7 @@ angular.module('starter.services', [])
 
 .factory('Logins', function(){
   return {
-    autorizarserompe: function(email, password){
+    autorizar: function(email, password){
       console.log('llego a autorizar');
       if(email == 'diana@hotmail.com' && 
         password == '123')

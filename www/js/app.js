@@ -80,7 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('tab.login', {
-    url: '/serompe',
+    url: '/login',
     views: {
       'tab-login': {
         templateUrl: 'templates/tab-login.html',

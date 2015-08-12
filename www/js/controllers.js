@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('LoginCtrl', function($scope, serompe) { 
+.controller('LoginCtrl', function($scope, Logins) { 
   $scope.datos = {
     email: "", 
     password: ""
