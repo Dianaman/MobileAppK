@@ -81,9 +81,9 @@ angular.module('starter.services', ['LocalStorageModule'])
         console.log('Esta soportado');
       }
      },
-    delete: function(){//borrar un usuario},
-    update: function(){//cambiar datos de un usuario},
-    read: function(){//lear algún usuario en particular}
+    delete: function(isUsuario){//borrar un usuario},
+    update: function(isUsuario){//cambiar datos de un usuario},
+    read: function(isUsuario){//lear algún usuario en particular}
   }
 })
 
