@@ -54,9 +54,9 @@ angular.module('starter.services', ['LocalStorageModule'])
   };
 })
 
-.factory('Logins', function(){
+.factory('AuthService', function(){
   return {
-    autorizarserompe: function(email, password){
+    autorizar: function(email, password){
       console.log('llego a autorizar');
       if(email == 'diana@hotmail.com' && 
         password == '123')
@@ -71,20 +71,30 @@ angular.module('starter.services', ['LocalStorageModule'])
   }
 })
 
-.factory('Crears', function(localStorageService){
-  return{
+.factory('UsuariosService', function(localStorageService){
+  return {
     crear: function(email, password, sexo, edad){
       console.log(email, password, sexo, edad);
+      
+      var userPw = email + '-pw';
+      var userSexo = email + '-sexo';
+      var userEdad = email + '-edad';
 
-      var lsKeys = localStorageService.keys();
-      if(localStorageService.isSupported){
-        console.log('Esta soportado');
-      }
-     },
-    delete: function(isUsuario){//borrar un usuario},
-    update: function(isUsuario){//cambiar datos de un usuario},
-    read: function(isUsuario){//lear algún usuario en particular}
+      return localStorageService.set(userPw, password), 
+        localStorageService.set(userSexo, sexo),
+        localStorageService.set(userEdad, edad);
+    },
+    delete: function(idUsuario){
+      localStorageService.remove(idUsuario);
+      console.log('Llego a borrar');
+    },
+    update: function(idUsuario, sexo){
+      localStorageService.set(idUsuario, sexo);
+      console.log('Llego a actualizar');
+    },
+    read: function(idUsuario){
+      //localStorageService.get(idUsuario);
+      console.log(localStorageService.get(idUsuario));
+    }
   }
 })
-
-//.factory('localStorageServices')

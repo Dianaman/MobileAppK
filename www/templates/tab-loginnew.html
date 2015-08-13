@@ -2,7 +2,8 @@
   <ion-content>
 
     <label class="item item-input">
-      <input type="email" ng-model="datos.email"> Email
+      <span class="input-label" name="email">Email</span>
+      <input type="email" ng-model="datos.email" >
     </label>
 
     <label class="item item-input">
@@ -23,8 +24,20 @@
       <input type="number" ng-model="datos.edad" >   
     </label>
 
-    <button class="button button-block button-positive" ng-click="click()">
-      Ok
+    <button class="button button-block button-positive" ng-click="crearUsuario()">
+      crear
+    </button>
+
+    <button class="button button-block button-positive" ng-click="borrar()">
+      borrar
+    </button>
+
+    <button class="button button-block button-positive" ng-click="update()">
+      update
+    </button>
+
+    <button class="button button-block button-positive" ng-click="read()">
+      Leer
     </button>
 
   </ion-content>

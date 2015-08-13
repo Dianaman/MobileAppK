@@ -27,13 +27,13 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('LoginCtrl', function($scope, serompe) { 
+.controller('AuthCtrl', function($scope, AuthService) { 
   $scope.datos = {
     email: "", 
     password: ""
   }; 
 
-  $scope.click = function(){
+  $scope.login = function(){
    /* if($scope.datos.email == $scope.mockDatos.email && 
       $scope.datos.password == $scope.mockDatos.password)
     {
@@ -45,11 +45,11 @@ angular.module('starter.controllers', [])
       alert('ERROR');
     }*/
 
-    Logins.autorizar($scope.datos.email, $scope.datos.password)
+    AuthService.autorizar($scope.datos.email, $scope.datos.password)
   };
 })
 
-.controller('LoginNewCtrl', function($scope, Crears, localStorageService) {
+.controller('LoginNewCtrl', function($scope, UsuariosService, localStorageService) {
    $scope.datos = {
     email: "", 
     password: "",
@@ -57,7 +57,18 @@ angular.module('starter.controllers', [])
     edad: ""
   }; 
   
-  $scope.click = function(){
-    Crears.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad);
-  }
-});
+  $scope.crearUsuario = function(){
+    UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
+  };
+  $scope.borrar = function(){
+    UsuariosService.delete('ppp@f.com-pw');
+  };
+  $scope.update = function(){
+    UsuariosService.update('ppp@f.com-edad', '68');
+  };
+  $scope.read = function(){
+    UsuariosService.read('ppp@f.com-pw');
+    UsuariosService.read('ppp@f.com-sexo');
+    UsuariosService.read('ppp@f.com-edad');
+  };
+})
