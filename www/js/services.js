@@ -77,10 +77,13 @@ angular.module('starter.services', ['LocalStorageModule'])
       console.log(email, password, sexo, edad);
 
       var lsKeys = localStorageService.keys();
-        if(localStorageService.isSupported){
-          console.log('Esta soportado');
-        }
-    }
+      if(localStorageService.isSupported){
+        console.log('Esta soportado');
+      }
+     },
+    delete: function(){//borrar un usuario},
+    update: function(){//cambiar datos de un usuario},
+    read: function(){//lear algún usuario en particular}
   }
 })
 
