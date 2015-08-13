@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('LoginNewCtrl', function($scope, Crears) {
+.controller('LoginNewCtrl', function($scope, Crears, localStorageService) {
    $scope.datos = {
     email: "", 
     password: "",
@@ -58,6 +58,6 @@ angular.module('starter.controllers', [])
   }; 
   
   $scope.click = function(){
-    Crears.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
+    Crears.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad);
   }
 });
