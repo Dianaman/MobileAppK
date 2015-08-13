@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['LocalStorageModule'])
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -71,10 +71,17 @@ angular.module('starter.services', [])
   }
 })
 
-.factory('Crears', function(){
+.factory('Crears', function(localStorageService){
   return{
     crear: function(email, password, sexo, edad){
       console.log(email, password, sexo, edad);
+
+      var lsKeys = localStorageService.keys();
+        if(localStorageService.isSupported){
+          console.log('Esta soportado');
+        }
     }
   }
 })
+
+//.factory('localStorageServices')
