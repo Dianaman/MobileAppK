@@ -7,3 +7,23 @@ p.offline
 {
 	color: red;
 }
+
+label.item-input
+{
+	width: 80%;
+	margin: 3% 10%;
+}
+button.button
+{
+	width: 30%;
+	margin: 0% 35%;
+}
+label.chico
+{
+	width: 20%;
+}
+
+#pagina
+{
+	overflow:none;
+}
