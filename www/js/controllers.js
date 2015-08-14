@@ -43,7 +43,8 @@ angular.module('starter.controllers', [])
     email: "", 
     password: "",
     sexo: "",
-    edad: ""
+    edad: "",
+    fecha: ""
   }; 
 
   $scope.dato = "";

@@ -23,6 +23,10 @@
       <input type="number" ng-model="datos.edad" >   
     </label>
 
+    <label class="item item-input">
+      <span class="input-label" name="fecha">fecha</span>
+      <input  ng-model="datos.fecha">{{ datos.fecha | change:true }}
+    </label>
     <button class="button button-block button-positive" ng-click="crearUsuario()">
       Add
     </button>
