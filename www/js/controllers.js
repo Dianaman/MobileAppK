@@ -34,17 +34,6 @@ angular.module('starter.controllers', [])
   }; 
 
   $scope.login = function(){
-   /* if($scope.datos.email == $scope.mockDatos.email && 
-      $scope.datos.password == $scope.mockDatos.password)
-    {
-      alert($scope.datos.email
-      );
-    }
-    else 
-    {
-      alert('ERROR');
-    }*/
-
     AuthService.autorizar($scope.datos.email, $scope.datos.password)
   };
 })
@@ -56,6 +45,8 @@ angular.module('starter.controllers', [])
     sexo: "",
     edad: ""
   }; 
+
+  $scope.dato = "";
   
   $scope.crearUsuario = function(){
     UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
@@ -67,8 +58,8 @@ angular.module('starter.controllers', [])
     UsuariosService.update('grhr@o.com-edad', '68');
   };
   $scope.read = function(){
-    UsuariosService.read('grhr@o.com-pw');
-    UsuariosService.read('grhr@o.com-sexo');
-    UsuariosService.read('grhr@o.com-edad');
+    $scope.dato = UsuariosService.read($scope.datos.email);
+    //UsuariosService.read('grhr@o.com-sexo');
+    //UsuariosService.read('grhr@o.com-edad');
   };
 })

@@ -94,7 +94,7 @@ angular.module('starter.services', ['LocalStorageModule'])
     },
     read: function(idUsuario){
       //localStorageService.get(idUsuario);
-      console.log(localStorageService.get(idUsuario));
+     return localStorageService.get(idUsuario);
     }
   }
 })
