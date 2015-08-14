@@ -1,95 +1,29 @@
-<ion-view view-title="LoginNew">
+<ion-view view-title="Users Manager">
   <ion-content>
-    <div id="pagina">
-      <div class="crearcs">
 
-        <label class="item item-input">
-          <span class="input-label" name="email">Email</span>
-          <input type="email" ng-model="datos.email" >
-        </label>
-
-        <label class="item item-input">
-          <span class="input-label" name="password">Password</span>
-          <input type="password" ng-model="datos.password">
-        </label>
-
-        <label class="item item-input item-select chico">
-          <span class="input-label">Sexo</span>
-          <select ng-model="datos.sexo">
-            <option selected>Femenino</option>
-            <option>Masculino</option>
-          </select>
-        </label>
-
-        <label class="item item-input item-select chico">
-          <span class="input-label">Edad</span>
-          <input type="number" ng-model="datos.edad" >   
-        </label>
-
-        <button class="button button-block button-positive" ng-click="crearUsuario()">
-          crear
-        </button>
-
-      </div>
-
-      <div class="borrarcs">
-
-        <label class="item item-input">
-          <span class="input-label" name="email">Email</span>
-          <input type="email" ng-model="datos.email" >
-        </label>
-
-        <button class="button button-block button-positive" ng-click="borrar()">
-          borrar
-        </button>
-
-      </div>
-
-      <div class="borrarcs">
-
-        <label class="item item-input">
-          <span class="input-label" name="email">Email</span>
-          <input type="email" ng-model="datos.email" >
-        </label>
-
-        <label class="item item-input">
-          <span class="input-label" name="password">Password</span>
-          <input type="password" ng-model="datos.password">
-        </label>
-
-        <label class="item item-input item-select chico">
-          <span class="input-label">Sexo</span>
-          <select ng-model="datos.sexo">
-            <option selected>Femenino</option>
-            <option>Masculino</option>
-          </select>
-        </label>
-
-        <label class="item item-input item-select chico">
-          <span class="input-label">Edad</span>
-          <input type="number" ng-model="datos.edad" >   
-        </label>      
-
-        <button class="button button-block button-positive" ng-click="update()">
-          update
-        </button>
-
-      </div>
-
-
-      <div class="borrarcs">
-
-        <label class="item item-input">
-          <span class="input-label" name="email">Email</span>
-          <input type="email" ng-model="datos.email" >
-        </label>
-
-        <button class="button button-block button-positive" ng-click="read()">
-          Leer
-        </button>
-
-      </div>
-    </div>
+    <a href="#/tab/crear" class="tabLink">
+      <button class="button button-block button-positive">
+        Crear
+      </button>
+    </a>
+   
+    <a href="#/tab/borrar" class="tabLink">
+      <button class="button button-block button-positive">
+        Borrar
+      </button>
+    </a>
+        
+    <a href="#/tab/actualizar" class="tabLink">
+      <button class="button button-block button-positive">
+        Actualizar
+      </button>
+    </a>
+        
+    <a href="#/tab/leer" class="tabLink">
+      <button class="button button-block button-positive">
+        Leer
+      </button>
+    </a>
 
 
   </ion-content>

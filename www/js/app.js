@@ -92,12 +92,52 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','L
   .state('tab.loginnew', {
     url: '/loginnew',
     views: {
-      'tab-loginnew': {
+      'tab-login': {
         templateUrl: 'templates/tab-loginnew.html',
         controller: 'LoginNewCtrl'
       }
     }
-  })  ;
+  })  
+
+  .state('tab.crear', {
+    url: '/crear',
+    views: {
+      'tab-login': {
+        templateUrl: 'templates/tab-create.html',
+        controller: 'LoginNewCtrl'
+      }
+    }
+  })
+
+  .state('tab.borrar', {
+    url: '/borrar',
+    views: {
+      'tab-login': {
+        templateUrl: 'templates/tab-delete.html',
+        controller: 'LoginNewCtrl'
+      }
+    }
+  }) 
+
+  .state('tab.actualizar', {
+    url: '/actualizar',
+    views: {
+      'tab-login': {
+        templateUrl: 'templates/tab-update.html',
+        controller: 'LoginNewCtrl'
+      }
+    }
+  })
+
+  .state('tab.leer', {
+    url: '/leer',
+    views: {
+      'tab-login': {
+        templateUrl: 'templates/tab-read.html',
+        controller: 'LoginNewCtrl'
+      }
+    }
+  }) ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');

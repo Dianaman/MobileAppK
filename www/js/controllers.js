@@ -61,14 +61,14 @@ angular.module('starter.controllers', [])
     UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
   };
   $scope.borrar = function(){
-    UsuariosService.delete('ppp@f.com-pw');
+    UsuariosService.delete('grhr@o.com-pw');
   };
   $scope.update = function(){
-    UsuariosService.update('ppp@f.com-edad', '68');
+    UsuariosService.update('grhr@o.com-edad', '68');
   };
   $scope.read = function(){
-    UsuariosService.read('ppp@f.com-pw');
-    UsuariosService.read('ppp@f.com-sexo');
-    UsuariosService.read('ppp@f.com-edad');
+    UsuariosService.read('grhr@o.com-pw');
+    UsuariosService.read('grhr@o.com-sexo');
+    UsuariosService.read('grhr@o.com-edad');
   };
 })

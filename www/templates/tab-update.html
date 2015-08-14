@@ -1,0 +1,34 @@
+<ion-view view-title="Update">
+  <ion-content>   
+
+
+    <label class="item item-input">
+      <span class="input-label" name="email">Email</span>
+      <input type="email" ng-model="datos.email" >
+    </label>
+
+    <label class="item item-input">
+      <span class="input-label" name="password">Password</span>
+      <input type="password" ng-model="datos.password">
+    </label>
+
+    <label class="item item-input item-select chico">
+      <span class="input-label">Sexo</span>
+      <select ng-model="datos.sexo">
+        <option selected>Femenino</option>
+        <option>Masculino</option>
+      </select>
+    </label>
+
+    <label class="item item-input item-select chico">
+      <span class="input-label">Edad</span>
+      <input type="number" ng-model="datos.edad" >   
+    </label>      
+
+    <button class="button button-block button-positive" ng-click="update()">
+      Update
+    </button>
+
+
+  </ion-content>
+</ion-view>
