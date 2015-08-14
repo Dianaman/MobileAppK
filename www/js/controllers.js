@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
     UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
   };
   $scope.borrar = function(){
-    UsuariosService.delete('grhr@o.com-pw');
+    UsuariosService.delete($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad);
   };
   $scope.update = function(){
     UsuariosService.update('grhr@o.com-edad', '68');
@@ -62,4 +62,12 @@ angular.module('starter.controllers', [])
     //UsuariosService.read('grhr@o.com-sexo');
     //UsuariosService.read('grhr@o.com-edad');
   };
+})
+
+.directive('dianaCreate', function(){
+  return {
+    transclude: true,
+    
+    templateUrl: 'templates/template.html'
+  }
 })

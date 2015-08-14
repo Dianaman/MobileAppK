@@ -85,12 +85,25 @@ angular.module('starter.services', ['LocalStorageModule'])
         localStorageService.set(userEdad, edad);
     },
     delete: function(idUsuario){
-      localStorageService.remove(idUsuario);
+      var userPw = idUsuario + '-pw';
+      var userSexo = idUsuario + '-sexo';
+      var userEdad = idUsuario + '-edad';     
+
       console.log('Llego a borrar');
+      return localStorageService.remove(idUsuario, userPw, userSexo, userEdad);
     },
-    update: function(idUsuario, sexo){
-      localStorageService.set(idUsuario, sexo);
+    update: function(idUsuario, valor){
       console.log('Llego a actualizar');
+      if(isNaN(valor)){
+        var variable = idUsuario + '-edad';
+      }
+      else if(valor == "Femenino" || valor == "Masculino"){
+        var variable = idUsuario + '-sexo';        
+      }
+      else {
+        var variable = idUsuario + '-pw';
+      }
+      return localStorageService.set(variable, valor);
     },
     read: function(idUsuario){
       //localStorageService.get(idUsuario);

@@ -23,7 +23,11 @@ label.chico
 	width: 50%;
 }
 
-a.tabLink
+a
 {
 	text-decoration: none;
+}
+a.master 
+{
+	color: silver;
 }
