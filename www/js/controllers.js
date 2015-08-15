@@ -50,7 +50,7 @@ angular.module('starter.controllers', [])
   $scope.dato = "";
   
   $scope.crearUsuario = function(){
-    UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad)
+    UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad, $scope.datos.fecha)
   };
   $scope.borrar = function(){
     UsuariosService.delete($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad);

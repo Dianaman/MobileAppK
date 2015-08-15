@@ -73,16 +73,28 @@ angular.module('starter.services', ['LocalStorageModule'])
 
 .factory('UsuariosService', function(localStorageService){
   return {
-    crear: function(email, password, sexo, edad){
-      console.log(email, password, sexo, edad);
+    crear: function(email, password, sexo, edad, fecha){
+      console.log(email, password, sexo, edad, fecha);
       
       var userPw = email + '-pw';
       var userSexo = email + '-sexo';
       var userEdad = email + '-edad';
+      var userFecha = email + '-fecha';      
+
+      var arrFecha = fecha.split("");
+      for(var i=0; i<fecha.length; i++){
+        if(arrFecha[i]=='/'){
+         arrFecha[i] = '-';
+         console.log("llego a reemplazar");
+        }
+       } 
+      fecha = arrFecha.join("");
+      //fecha = fecha.replace('/', '-');
 
       return localStorageService.set(userPw, password), 
         localStorageService.set(userSexo, sexo),
-        localStorageService.set(userEdad, edad);
+        localStorageService.set(userEdad, edad),
+        localStorageService.set(userFecha, fecha);
     },
     delete: function(idUsuario){
       var userPw = idUsuario + '-pw';

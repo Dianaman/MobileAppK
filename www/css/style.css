@@ -13,7 +13,7 @@ label.item-input
 	width: 80%;
 	margin: 3% 10%;
 }
-button.button
+button.button-block
 {
 	width: 40%;
 	margin: 0% 30%;
@@ -30,4 +30,8 @@ a
 a.master 
 {
 	color: silver;
+}
+.back-padding
+{
+	padding:50px;
 }
