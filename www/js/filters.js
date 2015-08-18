@@ -1,5 +1,5 @@
-/*angular.module('starter.filters', [])
-.filter('change', function(){
+angular.module('starter.filters', [])
+/*.filter('change', function(){
 	return function(input) {
 		
 	   	input = input || '';

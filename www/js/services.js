@@ -4,6 +4,7 @@ angular.module('starter.services', ['LocalStorageModule'])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
+
   var chats = [{
     id: 0,
     name: 'Ben Sparrow',
@@ -72,37 +73,100 @@ angular.module('starter.services', ['LocalStorageModule'])
 })
 
 .factory('UsuariosService', function(localStorageService){
+  var usuarios = [{
+    id: 0,
+    email: 'eee@c.com',
+    password: 'ee55',
+    sexo: 'Masculino',
+    edad: 19,
+    fecha: '19-08-1876',
+  }];
+
   return {
     crear: function(email, password, sexo, edad, fecha){
-      console.log(email, password, sexo, edad, fecha);
-      
-      var userPw = email + '-pw';
-      var userSexo = email + '-sexo';
-      var userEdad = email + '-edad';
-      var userFecha = email + '-fecha';      
 
       var arrFecha = fecha.split("");
       for(var i=0; i<fecha.length; i++){
         if(arrFecha[i]=='/'){
          arrFecha[i] = '-';
-         console.log("llego a reemplazar");
         }
        } 
       fecha = arrFecha.join("");
-      //fecha = fecha.replace('/', '-');
 
-      return localStorageService.set(userPw, password), 
-        localStorageService.set(userSexo, sexo),
-        localStorageService.set(userEdad, edad),
-        localStorageService.set(userFecha, fecha);
+      ultimo_id_usuarios = localStorageService.get('ultimo_id_usuarios');
+      if( ultimo_id_usuarios == null){
+        ultimo_id_usuarios = 0;
+      }
+      else {
+        ultimo_id_usuarios = ultimo_id_usuarios +1;
+      }
+      localStorageService.set('ultimo_id_usuarios', ultimo_id_usuarios);
+      
+      var usuarios={
+        id: ultimo_id_usuarios,
+        email: email,
+        password: password,
+        sexo: sexo,
+        edad: edad,
+        fecha: fecha
+      };
+
+      /*for (var i=0; i<usuarios.length; i++){
+        if(usuarios[i].email == email){
+          usuarios[i].password = password;
+          usuarios[i].sexo = sexo;
+          usuarios[i].edad = edad;
+          usuarios[i].fecha = fecha;
+          console.log("Encontro id");
+          var indice = i;
+          break;
+        }
+        
+      }
+      if(i==usuarios.length){
+        usuarios[i].id = i;
+        usuarios[i].password = password;
+        usuarios[i].sexo = sexo;
+        usuarios[i].edad = edad;
+        usuarios[i].fecha = fecha;
+        console.log("Creo id");
+        var indice = i-1;
+      }*/
+
+      console.log(i, email, password, sexo, edad, fecha);
+
+      //return localStorageService.set('usuarios'+indice, usuarios[i]);
+      //localStorageService.set('usuarios', usuarios);
+      console.log(localStorageService.get("usuarios"));
+      
+      var colUsuario = [];
+
+
+      if( localStorageService.get("usuarios") == null){
+         colUsuario.push(usuarios);
+      }else
+      { 
+        colUsuario.push(localStorageService.get("usuarios"));
+        colUsuario.push(usuarios);
+
+      }
+
+      localStorageService.set('usuarios', colUsuario);
+
     },
     delete: function(idUsuario){
       var userPw = idUsuario + '-pw';
       var userSexo = idUsuario + '-sexo';
-      var userEdad = idUsuario + '-edad';     
+      var userEdad = idUsuario + '-edad';    
+      var userFecha = idUsuario + '-fecha';     
 
       console.log('Llego a borrar');
-      return localStorageService.remove(idUsuario, userPw, userSexo, userEdad);
+
+      return localStorageService.remove(userPw),
+        localStorageService.remove(userSexo),
+        localStorageService.remove(userEdad),
+        localStorageService.remove(userFecha);
+
     },
     update: function(idUsuario, valor){
       console.log('Llego a actualizar');

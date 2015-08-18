@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('LoginNewCtrl', function($scope, UsuariosService, localStorageService) {
+.controller('LoginNewCtrl', function($scope, $stateParams, UsuariosService, localStorageService) {
    $scope.datos = {
     email: "", 
     password: "",
@@ -53,7 +53,8 @@ angular.module('starter.controllers', [])
     UsuariosService.crear($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad, $scope.datos.fecha)
   };
   $scope.borrar = function(){
-    UsuariosService.delete($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad);
+    UsuariosService.delete($scope.datos.email);
+    console.log("llego a borrar 2");
   };
   $scope.update = function(){
     UsuariosService.update('grhr@o.com-edad', '68');
