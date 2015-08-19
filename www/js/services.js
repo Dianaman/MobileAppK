@@ -139,16 +139,19 @@ angular.module('starter.services', ['LocalStorageModule'])
       //localStorageService.set('usuarios', usuarios);
       console.log(localStorageService.get("usuarios"));
       
-      var colUsuario = [];
+      
 
 
       if( localStorageService.get("usuarios") == null){
-         colUsuario.push(usuarios);
-      }else
-      { 
-        colUsuario.push(localStorageService.get("usuarios"));
-        colUsuario.push(usuarios);
+         var colUsuario = [];
 
+         colUsuario.push(usuarios);
+      }
+      else
+      { 
+        var colUsuario = localStorageService.get("usuarios");
+
+        colUsuario.push(usuarios);
       }
 
       localStorageService.set('usuarios', colUsuario);
