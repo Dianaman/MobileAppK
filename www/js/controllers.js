@@ -54,10 +54,9 @@ angular.module('starter.controllers', [])
   };
   $scope.borrar = function(){
     UsuariosService.delete($scope.datos.email);
-    console.log("llego a borrar 2");
   };
   $scope.update = function(){
-    UsuariosService.update('grhr@o.com-edad', '68');
+    UsuariosService.update($scope.datos.email, $scope.datos.password, $scope.datos.sexo, $scope.datos.edad, $scope.datos.fecha);
   };
   $scope.read = function(){
     $scope.dato = UsuariosService.read($scope.datos.email);

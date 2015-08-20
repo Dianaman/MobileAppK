@@ -158,35 +158,78 @@ angular.module('starter.services', ['LocalStorageModule'])
 
     },
     delete: function(idUsuario){
-      var userPw = idUsuario + '-pw';
-      var userSexo = idUsuario + '-sexo';
-      var userEdad = idUsuario + '-edad';    
-      var userFecha = idUsuario + '-fecha';     
+      
 
-      console.log('Llego a borrar');
-
-      return localStorageService.remove(userPw),
-        localStorageService.remove(userSexo),
-        localStorageService.remove(userEdad),
-        localStorageService.remove(userFecha);
-
+      for(var i=0; i<localStorageService.get("usuarios").length; i++){
+        var usuarios = localStorageService.get("usuarios");
+        if(idUsuario == usuarios[i].email) {
+          //localStorageService.remove(usuarios[i].email);
+          console.log("Usuario " + usuarios[i].email + " borrado"); 
+          usuarios.splice(i, 1);
+          localStorageService.set("usuarios", usuarios);
+        
+        }
+      }
     },
-    update: function(idUsuario, valor){
-      console.log('Llego a actualizar');
-      if(isNaN(valor)){
-        var variable = idUsuario + '-edad';
+    update: function(email, password, sexo, edad, fecha){
+      var usuarios = localStorageService.get("usuarios");
+      
+      for(var i=0; i<localStorageService.get("usuarios").length; i++){
+        
+
+        if(email == usuarios[i].email){
+          if(password != ''){
+            usuarios[i].password = password;
+          }
+          if(sexo != ''){
+            usuarios[i].sexo = sexo;
+          }
+          if(edad != ''){
+            usuarios[i].edad = edad;
+          }
+          if(fecha != ''){
+            var arrFecha = fecha.split("");
+            for(var l=0; l<fecha.length; l++){
+              if(arrFecha[l]=='/'){
+               arrFecha[l] = '-';
+              }
+            } 
+            usuarios[i].fecha = arrFecha.join("");
+          }
+          console.log("Usuario "+usuarios[i].email+ " actualizado");
+          usuarios.splice(i, 1, usuarios[i]);
+          localStorageService.set("usuarios", usuarios);
+          break;
+        }
       }
-      else if(valor == "Femenino" || valor == "Masculino"){
-        var variable = idUsuario + '-sexo';        
+      if(i==localStorageService.get("usuarios").length){
+        console.log("No se encontro el usuario");
       }
-      else {
-        var variable = idUsuario + '-pw';
-      }
-      return localStorageService.set(variable, valor);
+
     },
     read: function(idUsuario){
       //localStorageService.get(idUsuario);
-     return localStorageService.get(idUsuario);
+      //console.log(localStorageService.get("usuarios").length);
+      var usuarios = localStorageService.get("usuarios")
+      console.log();
+
+     for (var i=0; i<localStorageService.get("usuarios").length; i++){
+      
+      if(idUsuario == usuarios[i].email){
+        console.log(usuarios[i].id, 
+          usuarios[i].email, 
+          usuarios[i].password, 
+          usuarios[i].sexo, 
+          usuarios[i].edad, 
+          usuarios[i].fecha);
+        break;
+      }
+     }
+
+     if (i==localStorageService.get("usuarios").length){
+      console.log("No se encontro el usuario");
+     }
+
     }
   }
 })
