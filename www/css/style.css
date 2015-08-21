@@ -1,4 +1,5 @@
 /* Empty. Add your own CSS if you like */
+
 p.online
 {
 	color: green;
@@ -15,6 +16,8 @@ label.item-input
 }
 button.button-block
 {
+	background-color: #04B4AE;
+	color: snow;
 	width: 40%;
 	margin: 0% 30%;
 }
@@ -34,4 +37,14 @@ a.master
 .back-padding
 {
 	padding:50px;
+}
+div .bar-header, .tab-nav{
+	background-color:#2E2E2E;
+	color: #E6E6E6;
+}
+i.icon, span.tab-title {
+	color:#E6E6E6;
+}
+div.item.item-divider{
+	background-color: #04B4AE;
 }
