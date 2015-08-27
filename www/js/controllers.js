@@ -72,3 +72,8 @@ angular.module('starter.controllers', [])
     templateUrl: 'templates/template.html'
   }
 })
+
+.controller('contactsCtrl', function($scope, $http) {
+  $http.get("http://localhost/contactos.php")
+  .success(function (response) {$scope.names = response.contacts;});
+});

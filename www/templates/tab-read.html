@@ -10,8 +10,13 @@
     <button class="button button-block" ng-click="read()">
       Read
     </button>
-    <div id="dato">{{ dato }}</div>
-
+    <div ng-controller="contactsCtrl"> 
+      <ul>
+        <li ng-repeat="x in names">
+          {{ x.Email + ', ' + x.Password + ', ' + x.Sexo + ', ' + x.Edad + ', ' + x.Fecha }}
+        </li>
+      </ul>
+    </div>
 
   </ion-content>
 </ion-view>
