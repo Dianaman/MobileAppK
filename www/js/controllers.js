@@ -74,6 +74,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('contactsCtrl', function($scope, $http) {
-  $http.get("http://localhost/contactos.php")
-  .success(function (response) {$scope.names = response.contacts;});
+  $http.get("http://localhost/desdecero/servicio_restfull.php")
+  .success(function (response) {
+    //$scope.names = response.contacts;
+    console.log(response);
+  });
 });
