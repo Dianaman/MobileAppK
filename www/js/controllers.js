@@ -74,7 +74,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('contactsCtrl', function($scope, $http) {
-  $http.get("http://localhost/WebAppK/servicio_restfull.php")
+  $http.post("http://localhost/WebAppK/servicio_restfull.php", {"usuario":'Lala', "contra": 'fdgvf', "ruta": "signup"})
   .success(function(response) {
     //$scope.names = response.contacts;
     console.log(response);
