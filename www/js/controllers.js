@@ -73,10 +73,18 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('contactsCtrl', function($scope, $http) {
-  $http.post("http://localhost/WebAppK/servicio_restfull.php", {"usuario":'Lala', "contra": 'fdgvf', "ruta": "signup"})
-  .success(function(response) {
+.controller('contactsCtrl', function($scope, RestfullService) {
+  $scope.contact = {
+    user: "", 
+    pass: ""
+  }; 
+
+  $scope.contacts = function(){
+    RestfullService.post($scope.contact.user, $scope.contact.pass);
+  }
+  /*$http.post("http://localhost/WebAppK/servicio_restfull.php", {"usuario":"Lala", "contra":"fdgvf", "ruta":"signup"})
+  .then(function(response) {
     //$scope.names = response.contacts;
     console.log(response);
-  });
+  });*/
 });

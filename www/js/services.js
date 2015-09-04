@@ -233,3 +233,16 @@ angular.module('starter.services', ['LocalStorageModule'])
     }
   }
 })
+
+.factory('RestfullService', function($http){
+  return {
+    post: function(usuario, contra){
+      var ruta = "signup";
+      $http.post("http://localhost/WebAppK/servicio_restfull.php", 
+        {"usuario": usuario, "contra": contra, "ruta": ruta})
+      .then(function(response) {
+        console.log(response);
+      });
+    }
+  }
+})

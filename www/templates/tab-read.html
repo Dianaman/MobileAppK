@@ -1,4 +1,4 @@
-<ion-view view-title="Read">
+ <ion-view view-title="Read">
   <ion-content>   
 
 
@@ -10,13 +10,22 @@
     <button class="button button-block" ng-click="read()">
       Read
     </button>
-    <div ng-controller="contactsCtrl"> 
-      <!--<ul>
-        <li ng-repeat="x in names">
-          {{ x.Email + ', ' + x.Password + ', ' + x.Sexo + ', ' + x.Edad + ', ' + x.Fecha }}
-        </li>
-      </ul>-->
-    </div>
 
+    
+    <!--PHP-->
+    <div ng-controller="contactsCtrl"> 
+      <label class="item item-input">
+        <span class="input-label" name="usuario">Usuario</span>
+        <input type="text" ng-model="contact.user" >
+      </label>    
+      <label class="item item-input">
+        <span class="input-label" name="contra">Contraseña</span>
+        <input type="text" ng-model="contact.pass" >
+      </label>    
+
+      <button class="button button-block" ng-click="contacts()">
+        Post in server
+      </button>
+    </div>
   </ion-content>
 </ion-view>
