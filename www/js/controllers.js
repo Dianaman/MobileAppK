@@ -87,4 +87,24 @@ angular.module('starter.controllers', [])
     //$scope.names = response.contacts;
     console.log(response);
   });*/
-});
+})
+
+.directive('showServer', function(RestfullService, DatosLocalService){
+  return {
+    transclude: true,
+    templateUrl: 'templates/serverphp.html'
+    link: function(element, attr){
+      var lang_id = RestfullService.getLangId(1);
+      var lang_msg = RestfullService.getLangMsg('b');
+
+      DatosLocalService.get(lang_id, lang_msg);
+      element.css({
+        color: green;
+      })
+
+      //ideoma_code = RestfullService.getIdeomaCode --> 2, ingles
+      //que_mensaje_code = RestfullService.getRespuestaDelMetodo -> code:b
+      // DatosLocalService.traemeMensaje(ideomaCode,que_mensaje_code)
+    }
+  }
+})

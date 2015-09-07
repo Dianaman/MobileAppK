@@ -242,7 +242,14 @@ angular.module('starter.services', ['LocalStorageModule'])
         {"usuario": usuario, "contra": contra, "ruta": ruta})
       .then(function(response) {
         console.log(response);
+        document.getElementById("serverid").innerHTML = response.data["msg"] + ' ' + response.data["user"];
       });
+    }
+    idioma: function(){
+      var langUrl = "http://localhost/WebAppK/server_language.php";
+      var lang = 2;
+      var code = 'b';
+      
     }
   }
 })
