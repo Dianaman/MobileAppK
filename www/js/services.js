@@ -234,7 +234,7 @@ angular.module('starter.services', ['LocalStorageModule'])
   }
 })
 
-.factory('RestfullService', function($http){
+.factory('RestfullService', function($http, DatosLocalService){
   return {
     post: function(usuario, contra){
       var ruta = "signup";
@@ -244,12 +244,40 @@ angular.module('starter.services', ['LocalStorageModule'])
         console.log(response);
         document.getElementById("serverid").innerHTML = response.data["msg"] + ' ' + response.data["user"];
       });
+    },
+    getLangMsg: function(id, msg){
+      console.log("Llego a RestfullService.getLangMsg");
+      $http.post("http://localhost/WebAppK/servicio_restfull.php", 
+        {"usuario": "", "contra": "", "ruta": "", "idioma": id, "mensaje": msg})
+      .then(function(response) {
+        console.log(response);
+        var mensajes;
+         DatosLocalService.get()
+          .success(function(mensajes) {
+            console.log(mensajes);
+            //promise
+            console.log(mensajes[0].m);
+            //var i = response.data["id"];
+            //var mens = response.data["msg"];
+            //document.getElementById("serverid").innerHTML = mensajes[i].m;
+          })
+          .error(function(r){
+            console.log(r);
+          });;
+
+
+      });
     }
-    idioma: function(){
-      var langUrl = "http://localhost/WebAppK/server_language.php";
-      var lang = 2;
-      var code = 'b';
+  }
+})
+
+.factory('DatosLocalService', function($http){
+  return{
+    get: function(){
+      console.log("get"); 
+      return $http.get('js/langservice.json');
       
+      console.log("Llego a DatosLocalService.get");
     }
   }
 })

@@ -92,15 +92,15 @@ angular.module('starter.controllers', [])
 .directive('showServer', function(RestfullService, DatosLocalService){
   return {
     transclude: true,
-    templateUrl: 'templates/serverphp.html'
+    templateUrl: 'templates/serverphp.html',
     link: function(element, attr){
-      var lang_id = RestfullService.getLangId(1);
-      var lang_msg = RestfullService.getLangMsg('b');
 
-      DatosLocalService.get(lang_id, lang_msg);
-      element.css({
-        color: green;
-      })
+      var lang_id = RestfullService.getLangMsg(1, "hgriugbh");
+      console.log("Me devolvio lang_id");
+      //ar msg = DatosLocalService.get(lang_id, lang_msg);
+      /*element.css(
+        'color: green'
+      )*/
 
       //ideoma_code = RestfullService.getIdeomaCode --> 2, ingles
       //que_mensaje_code = RestfullService.getRespuestaDelMetodo -> code:b
