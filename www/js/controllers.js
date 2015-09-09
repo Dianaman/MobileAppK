@@ -65,13 +65,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.directive('dianaCreate', function(){
-  return {
-    transclude: true,
-    
-    templateUrl: 'templates/template.html'
-  }
-})
+
 
 .controller('contactsCtrl', function($scope, RestfullService) {
   $scope.contact = {
@@ -89,22 +83,3 @@ angular.module('starter.controllers', [])
   });*/
 })
 
-.directive('showServer', function(RestfullService, DatosLocalService){
-  return {
-    transclude: true,
-    templateUrl: 'templates/serverphp.html',
-    link: function(element, attr){
-
-      var lang_id = RestfullService.getLangMsg(1, "hgriugbh");
-      console.log("Me devolvio lang_id");
-      //ar msg = DatosLocalService.get(lang_id, lang_msg);
-      /*element.css(
-        'color: green'
-      )*/
-
-      //ideoma_code = RestfullService.getIdeomaCode --> 2, ingles
-      //que_mensaje_code = RestfullService.getRespuestaDelMetodo -> code:b
-      // DatosLocalService.traemeMensaje(ideomaCode,que_mensaje_code)
-    }
-  }
-})

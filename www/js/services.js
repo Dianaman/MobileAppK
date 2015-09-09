@@ -245,7 +245,27 @@ angular.module('starter.services', ['LocalStorageModule'])
         document.getElementById("serverid").innerHTML = response.data["msg"] + ' ' + response.data["user"];
       });
     },
-    getLangMsg: function(id, msg){
+    setServer: function(lang, usuario, contra){
+      console.log("Entro en RestfullService.setServer");
+      $http.post("http://localhost/WebAppK/servicio_restfull.php", 
+        {"usuario": usuario, "contra": contra, "ruta": "signup"})
+      .then(function(response){
+        console.log(response);
+        var m = response.data[m];
+        var mensajes;
+        DatosLocalService.set()
+          .success(function(mensajes){
+            console.log(mensajes);
+              //promise
+            console.log(mensajes[0].m);
+            document.getElementById("create-server").innerHTML = mensajes[lang].m;
+              
+          });
+      }, function(response){
+        console.log("Error connecting to server");
+      });
+    },
+    getServer: function(id, msg){
       console.log("Llego a RestfullService.getLangMsg");
       $http.post("http://localhost/WebAppK/servicio_restfull.php", 
         {"usuario": "", "contra": "", "ruta": "", "idioma": id, "mensaje": msg})
@@ -257,13 +277,14 @@ angular.module('starter.services', ['LocalStorageModule'])
             console.log(mensajes);
             //promise
             console.log(mensajes[0].m);
+            document.getElementById("read-server").innerHTML = mensajes[lang].m;
             //var i = response.data["id"];
             //var mens = response.data["msg"];
             //document.getElementById("serverid").innerHTML = mensajes[i].m;
           })
           .error(function(r){
             console.log(r);
-          });;
+          });
 
 
       });
@@ -278,6 +299,12 @@ angular.module('starter.services', ['LocalStorageModule'])
       return $http.get('js/langservice.json');
       
       console.log("Llego a DatosLocalService.get");
+    },
+    set: function(){
+      console.log("set"); 
+      return $http.get('js/langservice.json');
+      
+      console.log("Llego a DatosLocalService.set");
     }
   }
 })
