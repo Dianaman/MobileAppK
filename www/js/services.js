@@ -251,14 +251,13 @@ angular.module('starter.services', ['LocalStorageModule'])
         {"usuario": usuario, "contra": contra, "ruta": "signup"})
       .then(function(response){
         console.log(response);
-        var m = response.data[m];
+        var men = response.data['m'];
         var mensajes;
         DatosLocalService.set()
           .success(function(mensajes){
             console.log(mensajes);
               //promise
-            console.log(mensajes[0].m);
-            document.getElementById("create-server").innerHTML = mensajes[lang].m;
+            document.getElementById("create-server").innerHTML = mensajes[lang][men];
               
           });
       }, function(response){
@@ -271,13 +270,13 @@ angular.module('starter.services', ['LocalStorageModule'])
         {"usuario": "", "contra": "", "ruta": "", "idioma": id, "mensaje": msg})
       .then(function(response) {
         console.log(response);
+        var men = response.data['m'];
         var mensajes;
          DatosLocalService.get()
           .success(function(mensajes) {
             console.log(mensajes);
             //promise
-            console.log(mensajes[0].m);
-            document.getElementById("read-server").innerHTML = mensajes[lang].m;
+            document.getElementById("read-server").innerHTML = mensajes[lang][men];
             //var i = response.data["id"];
             //var mens = response.data["msg"];
             //document.getElementById("serverid").innerHTML = mensajes[i].m;
@@ -285,10 +284,46 @@ angular.module('starter.services', ['LocalStorageModule'])
           .error(function(r){
             console.log(r);
           });
-
-
       });
-    }
+    },
+    remServer: function(lang, usuario, contra){
+      console.log("Entro en RestfullService.remServer");
+      $http.post("http://localhost/WebAppK/servicio_restfull.php", 
+        {"usuario": usuario, "contra": contra, "ruta": "delete"})
+      .then(function(response){
+        console.log(response.data['m']);
+        var men = response.data['m'];
+        var mensajes;
+        DatosLocalService.set()
+          .success(function(mensajes){
+            console.log(mensajes);
+              //promise
+            document.getElementById("remove-server").innerHTML = mensajes[lang][men];
+              
+          });
+      }, function(response){
+        console.log("Error connecting to server");
+      });
+    },
+    modServer: function(lang, usuario, contra){
+      console.log("Entro en RestfullService.modServer");
+      $http.post("http://localhost/WebAppK/servicio_restfull.php", 
+        {"usuario": usuario, "contra": contra, "ruta": "modify"})
+      .then(function(response){
+        console.log(response);
+        var men = response.data['m'];
+        var mensajes;
+        DatosLocalService.set()
+          .success(function(mensajes){
+            console.log(mensajes);
+              //promise
+            document.getElementById("modify-server").innerHTML = mensajes[lang][men];
+              
+          });
+      }, function(response){
+        console.log("Error connecting to server");
+      });
+    },
   }
 })
 
@@ -305,6 +340,26 @@ angular.module('starter.services', ['LocalStorageModule'])
       return $http.get('js/langservice.json');
       
       console.log("Llego a DatosLocalService.set");
-    }
+    },
+    rem: function(){
+      console.log("rem"); 
+      return $http.get('js/langservice.json');
+      
+      console.log("Llego a DatosLocalService.rem");
+    },
+    mod: function(){
+      console.log("mod"); 
+      return $http.get('js/langservice.json');
+      
+      console.log("Llego a DatosLocalService.mod");
+    },
+  }
+})
+
+.factory('Idiomas', function(){
+  return {
+    es: 0, //español
+    en: 1, //ingles
+    pv: 2, //peroncho
   }
 })

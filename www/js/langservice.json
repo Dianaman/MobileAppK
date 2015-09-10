@@ -1,20 +1,35 @@
 [
 	{
+		 "code": 0,
+		 "m_c": "Registro exitoso",
+		 "m_c_e": "Error: usuario en uso",
+		 "m_r": "Lectura exitosa",
+		 "m_r_e": "Error en la lectura: usuario inexistente",
+		 "m_u": "Cambio guardado satisfactoriamente",
+		 "m_u_e": "Error en la modificacion: usuario inexistente",
+		 "m_d": "Usuario borrado satisfactoriamente",
+		 "m_d_e": "Error en la eliminacion: usuario inexistente"
+	},
+	{
 		 "code": 1,
-		 "m": "Ehhhh!! Todo bien guachin?",
-		 "m2": "Todo piola?",
-		 "m_e": "No lokooo, la cagaste!!"
+		 "m_c": "Registration sucessful",
+		 "m_c_e": "Error: user already exists",
+		 "m_r": "Read sucessful",
+		 "m_r_e": "Error reading: unexistant user",
+		 "m_u": "Update sucessful",
+		 "m_u_e": "Error updating: unexistant user",
+		 "m_d": "Delete sucessful",
+		 "m_d_e": "Error: unexistant user"
 	},
 	{
 		 "code": 2,
-		 "m": "Welcome to the jungle",
-		 "m2": "The jungle welcomes you",
-		 "m_e": "Something really bad is going on here!"
-	},
-	{
-		 "code": 3,
-		 "m": "Beep",
-		 "m2": "Beep-beep",
-		 "m_e": "Beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee..."
+		 "m_c": "Trasvasamiento generacional exitoso",
+		 "m_c_e": "Error: criaste a un gorila",
+		 "m_r": "Peronismo interpretado correctamente",
+		 "m_r_e": "Error: leiste troskismo, revolucion inexistente",
+		 "m_u": "Peronismo a kirchnerismo exitoso",
+		 "m_u_e": "Error: eso es peronismo de derecha",
+		 "m_d": "Eliminaste a un gorila exitosamente",
+		 "m_d_e": "Error: estas intentando matar a un compañero"
 	}
 ]
